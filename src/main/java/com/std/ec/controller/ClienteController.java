@@ -21,7 +21,7 @@ public class ClienteController {
     @Autowired
     private ICliente clienteService;
 
-    @PostMapping("cliente")
+    /*@PostMapping("cliente")
     @ResponseStatus(HttpStatus.CREATED)
     public ClienteDto create(@RequestBody ClienteDto clienteDto){
         Cliente clienteSave = clienteService.save(clienteDto);
@@ -75,7 +75,7 @@ public class ClienteController {
                 .correo(cliente.getCorreo())
                 .fechaRegistro(cliente.getFechaRegistro())
                 .build();
-    }
+    }*/
 
     /*public Cliente showById(@PathVariable Integer id) {
         ClienteDto cliente = clienteService.findById(id);
@@ -103,4 +103,20 @@ public class ClienteController {
             return ResponseEntity.ok(cliente); // Devuelve 200 OK con el cliente encontrado
         }
     }*/
+
+
+    @PostMapping("cliente")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ClienteDto create(@RequestBody ClienteDto clienteDto){
+        Cliente clienteSave = clienteService.save(clienteDto);
+        //System.out.println("Solicitud recibida: " + clienteDto);//
+        return ClienteDto
+                .builder()
+                .idCliente(clienteSave.getIdCliente())
+                .nombre(clienteSave.getNombre())
+                .apellido(clienteSave.getApellido())
+                .correo(clienteSave.getCorreo())
+                .fechaRegistro(clienteSave.getFechaRegistro())
+                .build();
+    }
 }
