@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.io.Serializable;
 import java.util.Date;
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -29,3 +30,4 @@ public class Cliente implements Serializable {
     @Column(name = "fecha_registro")
     private Date fechaRegistro;
 }
+

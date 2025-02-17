@@ -3,15 +3,14 @@ package com.std.ec.service.impl;
 import com.std.ec.model.dao.ClienteDao;
 import com.std.ec.model.dto.ClienteDto;
 import com.std.ec.model.entity.Cliente;
-import com.std.ec.service.ICliente;
-import lombok.Builder;
+import com.std.ec.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-public class ClienteImpl implements ICliente {
+public class ClienteImplService implements IClienteService {
 
     @Autowired
     private ClienteDao clienteDao;
@@ -39,5 +38,10 @@ public class ClienteImpl implements ICliente {
     @Override
     public void delete(Cliente cliente) {
         clienteDao.delete(cliente);
+    }
+
+    @Override
+    public boolean existsById(Integer id) {
+        return clienteDao.existsById(id);
     }
 }

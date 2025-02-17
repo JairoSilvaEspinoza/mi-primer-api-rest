@@ -1,14 +1,17 @@
 package com.std.ec.model.dto;
 
-import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 
+/*@Getter
+@Setter*/
 @Data
 @ToString
 @Builder
+/*@AllArgsConstructor
+@NoArgsConstructor*/
 
 public class ClienteDto implements Serializable {
 
@@ -17,4 +20,5 @@ public class ClienteDto implements Serializable {
     private String apellido;
     private String correo;
     private Date fechaRegistro;
+
 }
